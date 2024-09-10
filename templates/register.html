@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-</head>
-<body>
 
-<form method="post">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-screen h-screen flex justify-center items-center bg-zinc-900 text-white">
+
+<form method="post" class="bg-zinc-950 rounded-lg flex flex-col w-full py-24 px-8 h-full justify-center">
+    <h1 class="pb-12 text-8xl font-bold mb-32">Registre-se</h1>
+    
+    <label class="w-full">
+        <input type="text" name="username" placeholder="Nome de usuário" class="px-8 py-8 rounded-lg w-full bg-transparent border-1 border mb-8 text-4xl">
+    </label>
+    <label class="w-full">
+        <input type="text" name="display_name" placeholder="Nome real" class="px-8 py-8 rounded-lg w-full bg-transparent border-1 border mb-8 text-4xl">
+    </label>
+    <label class="w-full">
+        <input type="password" name="password" placeholder="Senha" class="px-8 py-8 rounded-lg w-full bg-transparent border-1 border mb-8 text-4xl">
+    </label>
+
     {% if error_message %}
-        <p><strong>{{ error_message }}</strong></p>
+        <p class="w-full text-end text-red-400"><strong>{{ error_message }}</strong></p>
     {% endif %}
     {% csrf_token %}
 
-    <label>
-        Usuário
-        <input type="text" name="username">
-    </label>
-    <label>
-        Nome
-        <input type="text" name="display_name">
-    </label>
-    <label>
-        Senha
-        <input type="password" name="password">
-    </label>
-
-    <button type="submit">
+    <button type="submit" class="w-full py-8 text-4xl bg-cyan-300 rounded-2xl mt-4 mb-32 text-black">
         Registrar
     </button>
 </form>
